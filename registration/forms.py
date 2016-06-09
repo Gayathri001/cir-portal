@@ -32,8 +32,8 @@ class UserRegistrationForm(ModelForm):
         widgets = user_widgets
         widgets['password'] = forms.PasswordInput(attrs={'placeholder':_('Password')})
 
-
     def clean(self):
+
         password, re_password = self.cleaned_data.get('password'), self.cleaned_data.get('repass')
         if password and password != re_password:
             raise forms.ValidationError(_("Passwords don\'t match"))
